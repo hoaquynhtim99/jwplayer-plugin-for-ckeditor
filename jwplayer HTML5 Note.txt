@@ -1,0 +1,45 @@
+Default Files:
+- editors/ckeditor/plugins/jwplayer/*
+
+Modify Files:
+- editors/ckeditor/plugins/jwplayer/dialogs/jwplayer.js
+
+New Files:
+- images/jwplayer5/*
+- images/jwplayer6/*
+
+Other Notes:
+- Open themes/current-theme/layout/header.tpl, add before 
+		</head>
+	this lines:
+        <script type="text/javascript" src="{NV_BASE_SITEURL}images/jwplayer6/jwplayer.js"></script>
+        <script type="text/javascript" src="{NV_BASE_SITEURL}images/jwplayer6/jwplayer.trigger.js"></script>
+		
+Vietnamese:
+
+<p>
+	Plugin jwplayer6 dành cho trình soạn thảo Ckeditor.<br />
+	Plugin mặc định trong NukeViet chỉ hỗ trợ trên máy tính có cái flash và sử dụng jwplayer5, plugin này ra đời để mang đến cho người dùng jwplayer6 và hỗ trợ các trình duyệt cho di động.
+	Khi cài plugin này, plugin mặc định jwplayer trong trình soạn thảo sẽ bị ghi đè.
+</p>
+
+<h2>Hướng dẫn cho NukeViet 4.0</h2>
+<p>Sẽ cập nhật sau</p>
+
+<h2>Hướng dẫn cho NukeViet 3.4</h2>
+<p>
+	Download các file đính kèm về giải nén ghi đè lên các file hệ thống, có thể dùng chức năng cài đặt và đóng gói tự động trong admin để cài đặt tự động (bỏ qua các cảnh báo) 
+	mở file /theme/theme-dang-dung/layout/header.tpl thêm phía trước 
+	<span style="font-family:'Courier New';font-size:14px;display:block;padding-left:30px;border:1px solid #dadada;padding:10px;margin:5px;overflow-x:auto;white-space:nowrap">
+		&lt;/head&gt;
+	</span>
+	hai dòng 
+	<span style="font-family:'Courier New';font-size:14px;display:block;padding-left:30px;border:1px solid #dadada;padding:10px;margin:5px;overflow-x:auto;white-space:nowrap">
+		&lt;script type=&quot;text/javascript&quot; src=&quot;{NV_BASE_SITEURL}images/jwplayer6/jwplayer.js&quot;&gt;&lt;/script&gt;<br />
+		&lt;script type=&quot;text/javascript&quot; src=&quot;{NV_BASE_SITEURL}images/jwplayer6/jwplayer.trigger.js&quot;&gt;&lt;/script&gt;
+	</span><br />
+	<strong>Chú ý: Phải thêm lên tất cả các giao diện hiện đang có sử dụng trên hệ thống bao gồm giao diện cho desktop và mobile, không cần thêm cho giao diện admin</strong></br >
+</p>
+
+<h2>Change logs:</h2>
+<p>3.4.01: <br />- Vài chức năng cơ bản.</p> 

@@ -1,0 +1,32 @@
+# Ignore some static files and directories.
+/.htaccess
+/CJzip.php
+/config.php
+/favicon.ico
+/index.php
+/LICENSE.txt
+/mainfile.php
+/robots.php
+/robots.txt
+/web.config
+/admin/
+/cache/
+/data/
+/editors/
+/files/
+/images/
+/includes/
+/install/
+/js/
+/language/
+/logs/
+/sess/
+/tmp/
+/uploads/
+/themes/
+/modules/
+
+# Allow this
+!/images/jwplayer5/
+!/images/jwplayer6/
+!/editors/ckeditor/plugins/jwplayer/

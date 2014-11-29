@@ -90,7 +90,7 @@ CKEDITOR.dialog.add('jwplayer', function (editor){
 						required: true,
 						validate: CKEDITOR.dialog.validate.notEmpty(editor.lang.flash.validateSrc),
 						id: 'video_url',
-						label: 'Youtube URL Or Stream Link URL',
+						label: editor.lang.jwplayer.videoLink,
 						onChange: UpdatePreview,
 					}, {
 						type: 'button',
@@ -106,7 +106,7 @@ CKEDITOR.dialog.add('jwplayer', function (editor){
 					children: [{
 						type: 'text',
 						id: 'preview_url',
-						label: 'Preview Image',
+						label: editor.lang.jwplayer.previewImage,
 						onChange: UpdatePreview,
 					}, {
 						type: 'button',
@@ -127,9 +127,9 @@ CKEDITOR.dialog.add('jwplayer', function (editor){
 							type: 'select',
 							id: 'skin',
 							'default': 'default',
-							label: 'Skin JW Player',
+							label: editor.lang.jwplayer.skin,
 							items: [
-								['default', 'default'],
+								[editor.lang.jwplayer.skinDefault, 'default'],
 							],
 							onChange: UpdatePreview,
 						}, {
@@ -162,7 +162,7 @@ CKEDITOR.dialog.add('jwplayer', function (editor){
 						children: [{
 							type: 'html',
 							id: 'preview',
-							html: '<div id="_video_preview" style="width:280px;height:175px;background:#333"></div><br>Author:phantandung92@gmail.com'
+							html: '<div id="_video_preview" style="width:280px;height:175px;background:#333"></div><br>' + editor.lang.jwplayer.author + ' :Tan Dung Phan [phantandung92@gmail.com]'
 						}]
 					}]
 				}]

@@ -23,4 +23,9 @@
 CKEDITOR.plugins.setLang('jwplayer', 'vi', {
 	dialogTitle : 'Chèn trình phát video Jwplayer',
 	videoGoesArea : 'VIDEO SẼ XUẤT HIỆN TẠI ĐÂY!',
+	videoLink : 'Đường dẫn video (hoặc Youtube Link)',
+	previewImage : 'Ảnh đại diện',
+	skin : 'Giao diện trình phát video',
+	skinDefault : 'Mặc định',
+	author : 'Tác giả',
 });

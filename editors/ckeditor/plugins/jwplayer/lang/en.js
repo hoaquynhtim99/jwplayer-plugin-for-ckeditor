@@ -23,4 +23,9 @@
 CKEDITOR.plugins.setLang('jwplayer', 'en', {
 	dialogTitle : 'Jwplayer playback',
 	videoGoesArea : 'VIDEO GOES HERE!',
+	videoLink : 'Video link or Youtube link',
+	previewImage : 'Preview image',
+	skin : 'Player skin',
+	skinDefault : 'Default',
+	author : 'Author',
 });

@@ -1,34 +1,41 @@
-CKEDITOR.dialog.add('jwplayer', function (editor){
-	var path_player = nv_siteroot + 'images/';
-	var JWplayer = path_player + 'jwplayer5/player.swf';
+/*
+ * @file Jwplayer plugin for CKEditor
+ * Copyright (C) 2014 Tan Dung Phan
+ *
+ * == BEGIN LICENSE ==
+ *
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ *
+ *  - GNU General Public License Version 2 or later (the "GPL")
+ *    http://www.gnu.org/licenses/gpl.html
+ *
+ *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
+ *    http://www.gnu.org/licenses/lgpl.html
+ *
+ *  - Mozilla Public License Version 1.1 or later (the "MPL")
+ *    http://www.mozilla.org/MPL/MPL-1.1.html
+ *
+ * == END LICENSE ==
+ *
+ */
 
+CKEDITOR.dialog.add('jwplayer', function (editor){    
+	CKEDITOR.scriptLoader.load([nv_siteroot + 'images/jwplayer/jwplayer.js', nv_siteroot + 'images/jwplayer/jwplayer.html5.js']);
+	
 	function UpdatePreview(){
 		var fileUrl = CKEDITOR.dialog.getCurrent().getContentElement('tab1', 'video_url').getValue();
 		var imageUrl = CKEDITOR.dialog.getCurrent().getContentElement('tab1', 'preview_url').getValue();
-		var width = CKEDITOR.dialog.getCurrent().getContentElement('tab1', 'width').getValue();
-		var height = CKEDITOR.dialog.getCurrent().getContentElement('tab1', 'height').getValue();
 		var auto = CKEDITOR.dialog.getCurrent().getContentElement('tab1', 'auto').getValue();
-		if(width == 0 && height == 0){
-			width = 240;
-			height = 200
-		}
-		var playerflashvars = "file=" + fileUrl + "&autostart=" + auto;
-		if(imageUrl != ''){
-			playerflashvars += "&image=" + imageUrl
-		}
-		var skin = '';
 		var selectskin = CKEDITOR.dialog.getCurrent().getContentElement('tab1', 'skin').getValue();
-		if(selectskin != 'default'){
-			skin = "&skin=" + path_player + "jwplayer/skin/" + selectskin + ".zip "
-		}
-		var JWEmbem = "<object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000'" + " width='" + width + "' height='" + height + "'>" + " <param name='movie' value='" + JWplayer + "'>" + " <param name='allowfullscreen' value='true'>" + " <param name='allowscriptaccess' value='always'>" + " <param name='flashvars' value='" + playerflashvars + "'>";
-		if(selectskin != 'default'){
-			JWEmbem += "<param name='flashvars' value='" + skin + "'>"
-		}
-		JWEmbem += " <embed id='player1' name='player1'";
-		JWEmbem += " width='" + width + "' height='" + height + "'" + " src='" + JWplayer + "' allowscriptaccess='always'" + " allowfullscreen='true' flashvars='" + playerflashvars + "'/>" + "</object>";
 		
-		document.getElementById("_video_preview").innerHTML = JWEmbem;
+		jwplayer("_video_preview").setup({
+	        file: fileUrl,
+	        image: imageUrl,
+	        width: 280,
+	        height: 175,
+	        autostart: auto
+	    });		
 	}
 
 	function ReturnPlayer(){
@@ -55,13 +62,13 @@ CKEDITOR.dialog.add('jwplayer', function (editor){
 		
 		JWEmbem += ' data-url="' + fileUrl + '"';
 		JWEmbem += ' class="jwplayer-html5-item"';
-		JWEmbem += '><div>VIDEO GOES HERE!</div></div><br />';
+		JWEmbem += '><div>' + editor.lang.jwplayer.videoGoesArea + '</div></div><br />';
 		
 		return JWEmbem;
 	}
 
 	return {
-		title: 'JWplayer 6 For NukeViet',
+		title: editor.lang.jwplayer.dialogTitle,
 		minWidth: 450,
 		minHeight: 230,
 		contents: [{
@@ -90,7 +97,7 @@ CKEDITOR.dialog.add('jwplayer', function (editor){
 						id: 'browse',
 						filebrowser: 'tab1:video_url',
 						label: editor.lang.common.browseServer,
-						style: 'display:inline-block;margin-top:8px;',
+						style: 'display:inline-block;margin-top:14px;',
 					}]
 				}, {
 					type: 'hbox',
@@ -106,7 +113,7 @@ CKEDITOR.dialog.add('jwplayer', function (editor){
 						id: 'browse',
 						filebrowser: 'tab1:preview_url',
 						label: editor.lang.common.browseServer,
-						style: 'display:inline-block;margin-top:8px;',
+						style: 'display:inline-block;margin-top:14px;',
 					}]
 				}, {
 					type: 'hbox',
@@ -128,6 +135,7 @@ CKEDITOR.dialog.add('jwplayer', function (editor){
 						}, {
 							type: 'text',
 							id: 'width',
+							'default': 500,
 							style: 'width:95px',
 							label: editor.lang.common.width,
 							validate: CKEDITOR.dialog.validate.integer(editor.lang.common.invalidWidth),
@@ -135,6 +143,7 @@ CKEDITOR.dialog.add('jwplayer', function (editor){
 						}, {
 							type: 'text',
 							id: 'height',
+							'default': 310,
 							style: 'width:95px',
 							label: editor.lang.common.height,
 							validate: CKEDITOR.dialog.validate.integer(editor.lang.common.invalidHeight),
@@ -153,7 +162,7 @@ CKEDITOR.dialog.add('jwplayer', function (editor){
 						children: [{
 							type: 'html',
 							id: 'preview',
-							html: '<div id="_video_preview" ><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" height="200px" width="200px"> <param name="movie" value="' + JWplayer + '" /> <param name="allowfullscreen" value="true" /> <param name="allowscriptaccess" value="always" /> <param name="flashvars" value="autostart=false" /> <embed allowfullscreen="true" allowscriptaccess="always" flashvars="autostart=false" height="200px" src="' + JWplayer + '" width="200px"></embed></object></div><br>Author:phantandung92@gmail.com'
+							html: '<div id="_video_preview" style="width:280px;height:175px;background:#333"></div><br>Author:phantandung92@gmail.com'
 						}]
 					}]
 				}]
@@ -161,7 +170,8 @@ CKEDITOR.dialog.add('jwplayer', function (editor){
 		}],
 		buttons: [CKEDITOR.dialog.okButton, CKEDITOR.dialog.cancelButton],
 		onOk: function (){
-			editor.setData(editor.getData() + ReturnPlayer())
+			jwplayer("_video_preview").stop();
+			editor.setData(editor.getData() + ReturnPlayer());
 		}
 	}
 });

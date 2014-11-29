@@ -1,4 +1,4 @@
-/*
+﻿/*
  * @file Jwplayer plugin for CKEditor
  * Copyright (C) 2014 Tan Dung Phan
  *
@@ -20,19 +20,7 @@
  *
  */
 
-(function() {
-	CKEDITOR.plugins.add('jwplayer', {
-		lang : ['en', 'vi'],
-	    requires: ['dialog'],
-	    init: function (editor) {
-	        var pluginName = 'jwplayer';
-	        CKEDITOR.dialog.add(pluginName, this.path + 'dialogs/jwplayer.js');
-	        editor.addCommand(pluginName, new CKEDITOR.dialogCommand(pluginName));
-	        editor.ui.addButton('jwplayer', {
-	            label: 'jwplayer',
-	            command: pluginName,
-	            icon: this.path + 'images/jwplayer.png',
-	        });
-	    }
-	});
-})();
+CKEDITOR.plugins.setLang('jwplayer', 'vi', {
+	dialogTitle : 'Chèn trình phát video Jwplayer',
+	videoGoesArea : 'VIDEO SẼ XUẤT HIỆN TẠI ĐÂY!',
+});

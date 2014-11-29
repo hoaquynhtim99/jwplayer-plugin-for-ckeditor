@@ -25,6 +25,8 @@
 /uploads/
 /themes/
 /modules/
+/CHANGELOG.txt
+/COPYRIGHT.txt
 
 # Allow this
 !/images/jwplayer5/

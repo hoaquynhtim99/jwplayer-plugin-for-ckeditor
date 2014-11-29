@@ -5,7 +5,29 @@ Plugin mặc định trong NukeViet chỉ hỗ trợ trên máy tính có cài f
 
 ## Hướng dẫn dành cho NukeViet 4.0
 
-Sẽ được cập nhật sau.
+Download các file đính kèm về giải nén ghi đè lên các file hệ thống, có thể dùng chức năng cài đặt và đóng gói tự động trong admin để cài đặt tự động (bỏ qua các cảnh báo) mở file /theme/theme-dang-dung/layout/header_only.tpl thêm phía trước
+```html
+</head>
+```
+hai dòng
+```html
+<script type="text/javascript" src="{NV_BASE_SITEURL}images/jwplayer/jwplayer.js"></script>
+<script type="text/javascript" src="{NV_BASE_SITEURL}images/jwplayer/jwplayer.trigger.js"></script>
+```
+
+Mở file /editors/ckeditor/config.js sửa dòng
+
+```js
+config.extraPlugins = 'video';
+```
+
+Thành
+
+```js
+config.extraPlugins = 'video,jwplayer';
+```
+
+> Chú ý phải thêm trên tất cả các giao diện hiện được sử dụng trên hệ thống (desktop và mobile) không cần thêm cho giao diện admin. Sau khi thêm cần xóa cache của trình duyệt để có hiệu lực.
 
 ## Hướng dẫn dành cho NukeViet 3.x
 

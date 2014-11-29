@@ -43,7 +43,9 @@ hai dòng
 > Chú ý phải thêm trên tất cả các giao diện hiện được sử dụng trên hệ thống (desktop và mobile) không cần thêm cho giao diện admin.
 
 ## Các thay đổi:
+
 ### 4.0.01
 * Chạy trên NukeViet 4.x.
+
 ### 3.4.01
 * Vài chức năng cơ bản.

@@ -32,3 +32,8 @@
 !/images/jwplayer5/
 !/images/jwplayer6/
 !/editors/ckeditor/plugins/jwplayer/
+/.gitattributes
+/CONTRIBUTING.md
+/assets
+/composer.json
+/vendor

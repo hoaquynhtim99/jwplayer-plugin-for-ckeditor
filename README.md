@@ -1,48 +1,33 @@
-ckeditor-jwplayer6-html5
+Plugin Jwplayer cho trình soạn thảo Ckeditor NukeViet
 ========================
 
-Plugin mặc định trong NukeViet chỉ hỗ trợ trên máy tính có cài flash và sử dụng jwplayer5, plugin này ra đời để mang đến cho người dùng jwplayer6 và hỗ trợ các trình duyệt cho di động.
+Bản NukeViet hỗ trợ: NukeViet 4 >= 4.0.23
 
-## Hướng dẫn dành cho NukeViet 4.0
+## Hướng dẫn cài đặt
 
-Download các file đính kèm về giải nén ghi đè lên các file hệ thống, có thể dùng chức năng cài đặt và đóng gói tự động trong admin để cài đặt tự động (bỏ qua các cảnh báo) mở file /theme/theme-dang-dung/layout/header_only.tpl thêm phía trước
-```html
-</head>
-```
-hai dòng
-```html
-<script type="text/javascript" src="{NV_BASE_SITEURL}images/jwplayer/jwplayer.js"></script>
-<script type="text/javascript" src="{NV_BASE_SITEURL}images/jwplayer/jwplayer.trigger.js"></script>
-```
+- Download các file đính kèm về giải nén ghi đè lên các file hệ thống (Chỉ upload thư mục includes và assets).
+- Đăng nhập quản trị site, vào khu vực Cấu hình => Thiết lập Plugin để thêm plugin ckeditor_jwplayer.php trước khi gọi các module.
+- Mở file `assets/editors/ckeditor/config.js` thêm giá trị `jwplayer` vào mục `config.extraPlugins`. Ví dụ:
 
-Mở file /editors/ckeditor/config.js sửa dòng
+Thay: 
 
 ```js
-config.extraPlugins = 'video';
+config.extraPlugins = 'video,eqneditor,switchbar,tbvdownload,googledocs';
 ```
 
 Thành
 
 ```js
-config.extraPlugins = 'video,jwplayer';
+config.extraPlugins = 'video,jwplayer,eqneditor,switchbar,tbvdownload,googledocs';
 ```
 
-> Chú ý phải thêm trên tất cả các giao diện hiện được sử dụng trên hệ thống (desktop và mobile) không cần thêm cho giao diện admin. Sau khi thêm cần xóa cache của trình duyệt để có hiệu lực.
-
-## Hướng dẫn dành cho NukeViet 3.x
-
-Download các file đính kèm về giải nén ghi đè lên các file hệ thống, có thể dùng chức năng cài đặt và đóng gói tự động trong admin để cài đặt tự động (bỏ qua các cảnh báo) mở file /theme/theme-dang-dung/layout/header.tpl thêm phía trước
-```html
-</head>
-```
-hai dòng
-```html
-<script type="text/javascript" src="{NV_BASE_SITEURL}images/jwplayer6/jwplayer.js"></script>
-<script type="text/javascript" src="{NV_BASE_SITEURL}images/jwplayer6/jwplayer.trigger.js"></script>
-```
-> Chú ý phải thêm trên tất cả các giao diện hiện được sử dụng trên hệ thống (desktop và mobile) không cần thêm cho giao diện admin.
+- Dọn dẹp hệ thống.
 
 ## Các thay đổi:
+
+### 4.1.01
+* Nâng cấp tương thích NukeViet >= 4.0.23
+* Cập nhật jwplayer 7.9.3
 
 ### 4.0.01
 * Chạy trên NukeViet 4.x.

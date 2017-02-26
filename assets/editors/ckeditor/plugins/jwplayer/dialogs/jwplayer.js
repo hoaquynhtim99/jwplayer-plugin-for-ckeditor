@@ -21,7 +21,7 @@
  */
 
 CKEDITOR.dialog.add('jwplayer', function (editor){    
-    CKEDITOR.scriptLoader.load([nv_siteroot + 'images/jwplayer/jwplayer.js', nv_siteroot + 'images/jwplayer/jwplayer.html5.js']);
+    CKEDITOR.scriptLoader.load([nv_base_siteurl + 'assets/images/jwplayer/jwplayer.js']);
     
     function UpdatePreview(){
         var fileUrl = CKEDITOR.dialog.getCurrent().getContentElement('tab1', 'video_url').getValue();
@@ -34,7 +34,8 @@ CKEDITOR.dialog.add('jwplayer', function (editor){
             image: imageUrl,
             width: 280,
             height: 175,
-            autostart: auto
+            autostart: auto,
+            skin: {name: selectskin}
         });        
     }
 
@@ -44,6 +45,7 @@ CKEDITOR.dialog.add('jwplayer', function (editor){
         var width = CKEDITOR.dialog.getCurrent().getContentElement('tab1', 'width').getValue();
         var height = CKEDITOR.dialog.getCurrent().getContentElement('tab1', 'height').getValue();
         var auto = CKEDITOR.dialog.getCurrent().getContentElement('tab1', 'auto').getValue();
+        var selectskin = CKEDITOR.dialog.getCurrent().getContentElement('tab1', 'skin').getValue();
         
         if(width == 0 && height == 0){
             width = 490;
@@ -55,6 +57,7 @@ CKEDITOR.dialog.add('jwplayer', function (editor){
         JWEmbem += ' data-width="' + width + '"';
         JWEmbem += ' data-height="' + height + '"';
         JWEmbem += ' data-auto="' + auto + '"';
+        JWEmbem += ' data-skin="' + selectskin + '"';
         
         if(imageUrl != ''){
             JWEmbem += ' data-image="' + imageUrl + '"';
@@ -130,6 +133,14 @@ CKEDITOR.dialog.add('jwplayer', function (editor){
                             label: editor.lang.jwplayer.skin,
                             items: [
                                 [editor.lang.jwplayer.skinDefault, 'default'],
+                                ["beelden", 'beelden'],
+                                ["bekle", 'bekle'],
+                                ["five", 'five'],
+                                ["glow", 'glow'],
+                                ["roundster", 'roundster'],
+                                ["six", 'six'],
+                                ["stormtrooper", 'stormtrooper'],
+                                ["vapor", 'vapor'],
                             ],
                             onChange: UpdatePreview,
                         }, {

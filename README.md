@@ -1,7 +1,7 @@
 Plugin Jwplayer cho trình soạn thảo Ckeditor NukeViet
 ========================
 
-Bản NukeViet hỗ trợ: NukeViet 4 >= 4.0.23
+Bản NukeViet hỗ trợ: NukeViet 4
 
 ## Hướng dẫn cài đặt
 
@@ -9,7 +9,7 @@ Bản NukeViet hỗ trợ: NukeViet 4 >= 4.0.23
 - Đăng nhập quản trị site, vào khu vực Cấu hình => Thiết lập Plugin để thêm plugin ckeditor_jwplayer.php trước khi gọi các module.
 - Mở file `assets/editors/ckeditor/config.js` thêm giá trị `jwplayer` vào mục `config.extraPlugins`. Ví dụ:
 
-Thay: 
+Thay:
 
 ```js
 config.extraPlugins = 'video,eqneditor,switchbar,tbvdownload,googledocs';
@@ -24,6 +24,9 @@ config.extraPlugins = 'video,jwplayer,eqneditor,switchbar,tbvdownload,googledocs
 - Dọn dẹp hệ thống.
 
 ## Các thay đổi:
+
+### 4.3.00
+* Nâng cấp tương thích NukeViet 4.3
 
 ### 4.1.01
 * Nâng cấp tương thích NukeViet >= 4.0.23

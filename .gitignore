@@ -37,3 +37,8 @@
 /assets
 /composer.json
 /vendor
+/error.php
+/.buildpath
+/.github
+/.project
+/.settings
